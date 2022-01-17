@@ -9,7 +9,7 @@ class Solution:
 	        far=max(far,i+arr[i])
 	        if i==r:
 	            jumps+=1
-	            l=i+1
+	            l=i
 	            r=far
 	    
         if r<n-1:

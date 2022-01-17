@@ -4,12 +4,13 @@ class Solution:
 	    far=0
 	    jumps=0
 	    r=0
+	    l=0
 	    for i in range(n-1):
-	        far=max(far,i+arr[i])
+	        l=i
+	        far=max(far,l+arr[i])
 	        if i==r:
 	            jumps+=1
 	            r=far
-	    
         if r<n-1:
             return -1
 	    return jumps

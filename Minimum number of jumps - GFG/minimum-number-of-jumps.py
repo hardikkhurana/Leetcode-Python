@@ -3,13 +3,11 @@ class Solution:
 	def minJumps(self, arr, n):
 	    far=0
 	    jumps=0
-	    l=0
 	    r=0
 	    for i in range(n-1):
 	        far=max(far,i+arr[i])
 	        if i==r:
 	            jumps+=1
-	            l=i
 	            r=far
 	    
         if r<n-1:

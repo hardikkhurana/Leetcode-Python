@@ -2,7 +2,7 @@
 
 class Solution:
     def count(self, S, m, n): 
-        dp=[[0] * (n+1) for i in range(m+1)]
+        dp=[[0] * (n+1) ]*(m+1)
         for i in range(m+1):
             dp[i][0]=1
             

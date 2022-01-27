@@ -5,6 +5,30 @@ class Solution:
     #Function to return a list containing the DFS traversal of the graph.
     def dfsOfGraph(self, V, adj):
         ans=[]
+        visited=set()
+        st=[0]
+        while len(st)!=0:
+            s=st.pop()
+            
+            if s in visited:
+                continue
+            ans.append(s)
+            visited.add(s)
+            for j in reversed(adj[s]):
+                if j not in visited:
+        
+                    st.append(j)
+    
+                   
+        return ans
+                
+        
+        
+        
+        
+    """
+    def dfsOfGraph(self, V, adj):
+        ans=[]
         def dfs(ele,visited):
             if ele in visited:
                 return
@@ -17,7 +41,7 @@ class Solution:
         dfs(0,set())
         return ans
             
-
+    """
 #{ 
 #  Driver Code Starts
 if __name__ == '__main__':

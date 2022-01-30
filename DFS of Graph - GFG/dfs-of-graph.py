@@ -9,17 +9,12 @@ class Solution:
         st=[0]
         while len(st)!=0:
             s=st.pop()
-            
-            if s in visited:
-                continue
-            ans.append(s)
-            visited.add(s)
-            for j in reversed(adj[s]):
-                if j not in visited:
-        
-                    st.append(j)
-    
-                   
+            if s not in visited:
+                ans.append(s)
+                visited.add(s)
+                for j in reversed(adj[s]):
+                    if j not in visited:
+                        st.append(j)
         return ans
                 
         

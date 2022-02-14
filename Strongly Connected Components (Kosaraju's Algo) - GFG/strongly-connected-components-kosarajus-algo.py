@@ -13,19 +13,17 @@ class Solution:
                 transpose[j].append(i)
                 
         
-        def stackBuilder(d, visited, stack):
+        def stackBuilder(d):
             visited[d] = True
             for i in adj[d]:
                 if not visited[i]:
-                    stackBuilder(i, visited, stack)
+                    stackBuilder(i)
             stack.append(d)
-        
-        
-
-        
+    
+    
         for i in range(V):
             if not visited[i]:
-                stackBuilder(i,visited,stack)
+                stackBuilder(i)
    
         
         visited=[False] * V

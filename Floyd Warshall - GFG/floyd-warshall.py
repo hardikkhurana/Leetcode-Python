@@ -1,5 +1,22 @@
-#User function template for Python
+class Solution:
+	def shortest_distance(self, G):
+	    nV=len(G)
+	    for i in range(nV):
+	        for j in range(nV):
+	            if G[i][j]==-1:
+	                G[i][j]=float("inf")
+	    for k in range(nV):
+	        for i in range(nV):
+	            for j in range(nV):
+	                G[i][j]=min(G[i][j],G[i][k]+G[k][j])
+	                
+	    for i in range(nV):
+	        for j in range(nV):
+	            if G[i][j]==float("inf"):
+	                G[i][j]=-1
 
+#User function template for Python
+"""
 class Solution:
 	def shortest_distance(self, G):
 	    for i in range(len(G)):
@@ -23,7 +40,7 @@ class Solution:
                 for j in range(nV):
                     distance[i][j] = min(distance[i][j], distance[i][k] + distance[k][j])
         print_solution(distance)
-
+"""
 
 #{ 
 #  Driver Code Starts

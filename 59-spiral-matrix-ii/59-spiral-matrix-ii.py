@@ -4,7 +4,6 @@ class Solution:
         l,r,t,b=0,n-1,0,n-1
         target=n*n
         count=1
-        a=1
         while l<=r :
             for i in range(l,r+1):
                 mat[t][i]=count

@@ -1,3 +1,4 @@
+"""
 class Solution:
     def countVowelStrings(self, n: int) -> int:
         s=["u","o","i","e","a"]
@@ -12,6 +13,12 @@ class Solution:
                         break
             l=tmp
         return len(l)
-            
-        
+"""
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        l=[1,1,1,1,1]
+        for _ in range(1,n):
+            for j in range(4):
+                l[j]=sum(l[j:])
+        return sum(l)
         

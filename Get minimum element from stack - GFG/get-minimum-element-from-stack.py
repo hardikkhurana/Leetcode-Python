@@ -3,14 +3,23 @@
 class stack:
     def __init__(self):
         self.s=[]
-        self.minEle=None
+        self.minEle=[]
 
     def push(self,x):
+        if len(self.s)==0:
+            self.minEle.append(x)
+        else:
+            if self.minEle[-1]>=x:
+                self.minEle.append(x)
+            else:
+                self.minEle.append(self.minEle[-1])
         self.s.append(x)
+        
 
     def pop(self):
         if not self.s:
             return -1
+        self.minEle.pop()
         return (self.s.pop())
         
 

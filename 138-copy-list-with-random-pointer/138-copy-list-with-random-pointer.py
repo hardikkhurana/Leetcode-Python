@@ -6,7 +6,6 @@ class Node:
         self.next = next
         self.random = random
 """
-
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         has={None:None}
@@ -21,7 +20,6 @@ class Solution:
             copy=has[curr]
             copy.next=has[curr.next]
             copy.random=has[curr.random]
-            curr=curr.next
-            
+            curr=curr.next  
             
         return has[head]

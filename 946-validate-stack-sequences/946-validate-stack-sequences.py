@@ -1,7 +1,7 @@
+"""
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
-        i=0
-        j=0
+        i,j=0,0
         n=len(pushed)
         m=len(popped)
         visited=set()
@@ -17,4 +17,16 @@ class Solution:
                 i+=1
             st.pop()
             j+=1
-        
+"""        
+class Solution:
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+        st=[]
+        j=0
+        for i in pushed:
+            st.append(i)
+            while st and st[-1]==popped[j]:
+                j+=1
+                st.pop()
+        if len(st)==0:
+            return True
+        return False

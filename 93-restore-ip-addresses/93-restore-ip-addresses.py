@@ -13,7 +13,7 @@ class Solution:
                 if int(s[:i+1])>255:
                     break
                 if i!= 0 and s[0]=='0':
-                    continue
+                    break
                 helper(s[i+1:],k+1,temp+s[:i+1]+".")
         helper(s,0,"")
         return ans

@@ -1,4 +1,3 @@
-import heapq
 from collections import deque
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:

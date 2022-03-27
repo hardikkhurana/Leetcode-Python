@@ -2,7 +2,6 @@ import heapq
 from collections import deque
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
-        minheap=[]
         d=defaultdict(deque)
         for i in range(len(mat)):
             d[mat[i].count(1)].append(i)

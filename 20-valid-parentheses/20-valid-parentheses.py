@@ -1,25 +1,20 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        st=[]
-        l=["[","(","{"]
-        a=set(l)
-        for i in s:
-            if i in a:
-                st.append(i)
+        stack=[]
+        for b in s:
+            if b in ("(","{","["):
+                stack.append(b)
             else:
-                if not st:
+                if not stack:
                     return False
-                if i=="]" and st[-1]=="[":
-                    st.pop()
-                elif i=="}"and st[-1]=="{":
-                    st.pop()
-                elif i==")"and st[-1]=="(":
-                    st.pop()
+                elif b=="}" and stack[-1]=="{":
+                    stack.pop()
+                elif b==")" and stack[-1]=="(":
+                    stack.pop()
+                elif b=="]" and stack[-1]=="[":
+                    stack.pop()
                 else:
                     return False
-        if not st:
+        if not stack:
             return True
-                    
-            
-        
-        
+        return False

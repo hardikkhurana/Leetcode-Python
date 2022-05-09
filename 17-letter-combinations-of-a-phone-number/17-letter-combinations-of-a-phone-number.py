@@ -1,16 +1,23 @@
 class Solution:
+    def sol(self,digits,i,curr,out,d):
+        if i>=len(digits):
+            out.append(curr)
+            return
+        letters=d[digits[i]]
+        for j in letters:
+            curr+=j
+            self.sol(digits,i+1,curr,out,d)
+            curr=curr[:-1]
+        return
     def letterCombinations(self, digits: str) -> List[str]:
+        d={'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', 
+                   '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
         if digits=="":
             return []
-        res=[]
-        h={"0":[],"1":[],"2":["a","b","c"],"3":["d","e","f"],"4":["g","h","i"],"5":["j","k","l"],"6":["m","n","o"],"7":["p","q","r","s"],"8":["t","u","v"],"9":["w","x","y","z"]}
-        def helper(s,i):
-            if i==len(digits):
-                res.append(s)
-                return
-            for j in h[digits[i]]:
-                helper(s+j,i+1)
-            
-        helper("",0)
-        return res
+         
+        out=[]
+        i=0
+        self.sol(digits,i,"",out,d)
+        return out
+        
         

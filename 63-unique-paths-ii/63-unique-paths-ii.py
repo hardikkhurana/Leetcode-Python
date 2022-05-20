@@ -1,16 +1,24 @@
 class Solution:
-    def uniquePathsWithObstacles(self, matrix: List[List[int]]) -> int:
-        if matrix[-1][-1]==1 or matrix[0][0]==1:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        n=len(obstacleGrid)
+        m=len(obstacleGrid[0])
+        
+        if obstacleGrid[0][0]==1 or obstacleGrid[-1][-1]==1:
             return 0
-        n=len(matrix)
-        m=len(matrix[0])
-        dp=[[0 for i in range(m)] for j in range(n)]
-        dp[0][0]=1
-        for i in range(n):
-            for j in range(m):
-                if matrix[i][j]==0:
-                    if i-1>=0:
-                        dp[i][j] += dp[i-1][j]
-                    if j-1 >= 0:
-                        dp[i][j] += dp[i][j-1]
-        return dp[-1][-1]
+        
+        dp=[[0]*(m+1) for i in range(n+1)]
+        #print(n,m)
+        if n>=1:
+            dp[n-1][-1]=1
+        elif m==1:
+            dp[-1][m-1]==1
+        #print(dp)
+        for i in range(n-1,-1,-1):
+            for j in range(m-1,-1,-1):
+                if obstacleGrid[i][j]==1:
+                    dp[i][j]=0
+                else:
+                    dp[i][j]=dp[i+1][j]+dp[i][j+1]
+
+                
+        return dp[0][0]

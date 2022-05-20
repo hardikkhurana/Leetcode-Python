@@ -7,12 +7,7 @@ class Solution:
             return 0
         
         dp=[[0]*(m+1) for i in range(n+1)]
-        #print(n,m)
-        if n>=1:
-            dp[n-1][-1]=1
-        elif m==1:
-            dp[-1][m-1]==1
-        #print(dp)
+        dp[n-1][-1]=1
         for i in range(n-1,-1,-1):
             for j in range(m-1,-1,-1):
                 if obstacleGrid[i][j]==1:

@@ -1,8 +1,9 @@
-[
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = defaultdict(list)
+        h = defaultdict(list)
 
         for word in strs:
-            res["".join(sorted(word))].append(word)
-        return res.values()
+            h[tuple(sorted(word))].append(word)
+        
+        return h.values()
+["eat","tea","tan","ate","nat","bat"]

@@ -1,12 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def minSteps(self, n: int) -> int:
-        dp=[float("inf")]*(n+1)
-        dp[0]=0
-        dp[1] =0
+    def rob(self, root: Optional[TreeNode]) -> int:
+        
+        def helper(node):
+            if not node:
+                return 0,0 #[withroot,withoutroot]
+            
+            leftPair = helper(node.left)
+            rightPair = helper(node.right)
 
-        for i in range(2,n+1):
-            dp[i] = i
-            for j in range(2,i):
-                if i%j==0:
-                    val = dp[j] + (i//j)
-3
+            withRoot = node.val + leftPair[1] + rightPair[1]
+
+            withoutRoot = max(leftPair) + max(rightPair)
+
+            return withRoot,withoutRoot
+            
+        return max(helper(root))
+[3,2,3,null,3,null,1]
